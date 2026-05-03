@@ -40,6 +40,12 @@ if %ERRORLEVEL% NEQ 0 (
     pause
     exit /b 1
 )
+echo.
+echo Rebuilding better-sqlite3 for your Node.js version...
+call npm rebuild better-sqlite3
+if %ERRORLEVEL% NEQ 0 (
+    echo Warning: better-sqlite3 rebuild failed. Install Visual Studio Build Tools if needed.
+)
 cd ..
 
 REM Create server .env if it doesn't exist

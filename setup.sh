@@ -61,13 +61,14 @@ echo ""
 echo "Installing server dependencies..."
 cd server
 npm install
+npm rebuild better-sqlite3 || true
 cd ..
 
 # Initialize database
 echo ""
 echo "Initializing database..."
 cd server
-npm run migrate 2>/dev/null || echo "Migration script not found, skipping..."
+npm run db:migrate 2>/dev/null || echo "Run db:migrate manually if needed"
 cd ..
 
 echo ""
